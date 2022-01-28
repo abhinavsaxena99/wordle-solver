@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve wordle-solver
+After=network.target
+
+[Service]
+User=admin
+Group=www-data
+WorkingDirectory=/home/admin/wordle-solver
+Environment="PATH=/home/admin/wordle-solver/venv/bin"
+ExecStart=/home/admin/wordle-solver/venv/bin/gunicorn --workers 3 --bind unix:wordle-solver.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
