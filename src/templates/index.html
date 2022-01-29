@@ -12,17 +12,17 @@
   <body>
     <form class="my-form" method = "POST">
       <div class="container">
-        <h1>Wordle Sovler</h1>
+        <h1>Wordle Solver</h1>
         <ul>
           <li>
             <div class="grid grid-2">
-              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value="{{data.letters_present}}" onkeypress="return /[a-zA-Z]/i.test(event.key)">
-              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value="{{data.letters_absent}}" onkeypress="return /[a-zA-Z]/i.test(event.key)">
+              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value="{{data.letters_present}}" pattern="[A-Za-z]*" title="Must only have alphabets">
+              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value="{{data.letters_absent}}" pattern="[A-Za-z]*" title="Must only have alphabets">
             </div>
           </li>
           <li>
             <div class="grid">
-              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value="{{data.regex}}" maxlength="5" onkeypress="return /[a-zA-Z_\-]/i.test(event.key)">
+              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value="{{data.regex}}" pattern="[A-Za-z_\-]{5}" title="Must be 5 characters long and not have digits">
             </div>
             <p class = "note">
               Use '_' or '-' for blanks, example- 'M_SI_'
