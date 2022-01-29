@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template('index.html', data = None)
+    return render_template('index.html', data = ["","","","",""])
 
 @app.route('/', methods=['POST'])
 def my_form_post():

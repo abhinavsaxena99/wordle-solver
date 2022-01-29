@@ -39,17 +39,9 @@
               <p>Top 5 guesses</p>
               <div class = guesses>
                 <ul>
-                  {% if data%}
-                    {% for item in data %}
-                    <li>{{item}}</li>
-                    {% endfor %}
-                  {%else%}
-                    <li>&nbsp;</li>
-                    <li>&nbsp;</li>
-                    <li>&nbsp;</li>
-                    <li>&nbsp;</li>
-                    <li>&nbsp;</li>
-                  {%endif%}
+                  {% for item in data %}
+                  <li>{{item}}</li>
+                  {% endfor %}
                 </ul>
               </div>
           </li>  
