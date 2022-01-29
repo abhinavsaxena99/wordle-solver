@@ -28,7 +28,7 @@ def my_form_post():
         "words": []
     }
 
-    data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
+    # data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
     # data["words"] = ["MOUSE","TRAIN","SOLVE"]
     # data["words"] = ["MOUSE"]
     # data["words"] = []
@@ -41,11 +41,11 @@ def my_form_post():
         data["message"] = "The word is :-"
 
     if words_length == 0:
-        data["message"] = "Some error occured, re-check the fields"
+        data["message"] = "Error! re-check the fields"
 
-    # # Forcefully make length of data["words"] to 5 always to ensure position of footer (hack)
-    # for i in range(0,5-words_length):
-    #     data["words"].append("&nbsp;")
+    # Forcefully make length of data["words"] to 5 always to ensure position of footer (hack)
+    for i in range(0,5-words_length):
+        data["words"].append("\xa0")
     
     return render_template('index.html', data = data)
 
