@@ -20,8 +20,8 @@ h1 {
   color: white;
   text-align: center;
   font-family: 'Roboto Slab', serif;
-  font-size: 2.5em;
-  margin: 2em;
+  font-size: 2em;
+  margin: 0.5em;
 }
 
 p {
@@ -30,6 +30,7 @@ p {
   font-family: 'Roboto Slab', serif;
   font-size: 1em;
   margin: 1em;
+  margin-bottom: 3em;
 }
 
 .guesses {
@@ -38,6 +39,18 @@ p {
   font-family: 'Roboto Slab', serif;
   font-size: 1.5em;
   margin-top: 1em;
+}
+
+.guesses li {
+  margin: -1em;
+}
+
+.note {
+  color: #afafaf;
+  text-align: left;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.9em;
+  margin: 0.5em;
 }
 
 /* .guesses ul.tabs li {
@@ -64,7 +77,7 @@ textarea {
 button {
   font-family: inherit;
   font-size: 150%;
-  color: #FFFFFF;
+  color: #efefef;
 }
 
 button,
@@ -100,13 +113,22 @@ ul {
 }
 
 .my-form input,
-.my-form textarea,
-.my-form button {
+.my-form textarea {
   width: 100%;
   line-height: 1.5;
   padding: 15px 10px;
   border: 1px solid var(--borderFormEls);
   color: var(--white);
+  background: var(--bgFormEls);
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+    transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form button {
+  width: 100%;
+  line-height: 1.5;
+  padding: 15px 10px;
+  border: 1px solid var(--borderFormEls);
   background: var(--bgFormEls);
   transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
     transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);

@@ -22,8 +22,11 @@
           </li>
           <li>
             <div class="grid">
-              <input type="text" placeholder="Known Letters' Position (Green) Use '_' or '-' for blank, example- 'M_SI_'" name="regex">
+              <input type="text" placeholder="Known Letters' Position (Green)" name="regex">
             </div>
+            <p class = "note">
+              Use '_' or '-' for blank, example- 'M_SI_'
+            </p>
           </li>
           <li>
             <div class="grid grid">
@@ -38,7 +41,7 @@
                 <ul>
                   {% if data%}
                     {% for item in data %}
-                    <li style="font-size: 120%">{{item}}</li>
+                    <li>{{item}}</li>
                     {% endfor %}
                   {%else%}
                     <li>&nbsp;</li>
