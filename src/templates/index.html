@@ -16,16 +16,16 @@
         <ul>
           <li>
             <div class="grid grid-2">
-              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value={{data.letters_present}}>
-              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value={{data.letters_absent}}>
+              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value="{{data.letters_present}}" onkeypress="return /[a-zA-Z]/i.test(event.key)">
+              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value="{{data.letters_absent}}" onkeypress="return /[a-zA-Z]/i.test(event.key)">
             </div>
           </li>
           <li>
             <div class="grid">
-              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value={{data.regex}}>
+              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value="{{data.regex}}" maxlength="5" onkeypress="return /[a-zA-Z_\-]/i.test(event.key)">
             </div>
             <p class = "note">
-              Use '_' or '-' for blank, example- 'M_SI_'
+              Use '_' or '-' for blanks, example- 'M_SI_'
             </p>
           </li>
           <li>
