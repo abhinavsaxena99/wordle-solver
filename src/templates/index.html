@@ -16,13 +16,13 @@
         <ul>
           <li>
             <div class="grid grid-2">
-              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value="{{data.letters_present}}" pattern="[A-Za-z]*" title="Must only have alphabets">
-              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value="{{data.letters_absent}}" pattern="[A-Za-z]*" title="Must only have alphabets">
+              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value="{{data.letters_present}}" pattern="[A-Za-z]*" title="Must contain only alphabets">
+              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value="{{data.letters_absent}}" pattern="[A-Za-z]*" title="Must contain only alphabets">
             </div>
           </li>
           <li>
             <div class="grid">
-              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value="{{data.regex}}" pattern="[A-Za-z_\-]{5}" title="Must be 5 characters long and not have digits">
+              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value="{{data.regex}}" pattern="[A-Za-z_\-]{5}" title="Must be 5 characters long and not contain digits">
             </div>
             <p class = "note">
               Use '_' or '-' for blanks, example- 'M_SI_'
