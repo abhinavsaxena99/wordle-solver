@@ -16,13 +16,13 @@
         <ul>
           <li>
             <div class="grid grid-2">
-              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present">
-              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent">
+              <input type="text" placeholder="Letters Present (Yellow)" name="letters_present" required value={{data.letters_present}}>
+              <input type="text" placeholder="Letters Not Present (Gray)" name="letters_absent" required value={{data.letters_absent}}>
             </div>
           </li>
           <li>
             <div class="grid">
-              <input type="text" placeholder="Known Letters' Position (Green)" name="regex">
+              <input type="text" placeholder="Known Letters' Position (Green)" name="regex" value={{data.regex}}>
             </div>
             <p class = "note">
               Use '_' or '-' for blank, example- 'M_SI_'
@@ -36,11 +36,11 @@
             </div>
           </li>
           <li>
-              <p>Top 5 guesses</p>
+              <p>{{data.message}}</p>
               <div class = guesses>
                 <ul>
-                  {% for item in data %}
-                  <li>{{item}}</li>
+                  {% for word in data.words %}
+                  <li>{{word}}</li>
                   {% endfor %}
                 </ul>
               </div>

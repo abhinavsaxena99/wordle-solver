@@ -3,7 +3,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template('index.html', data = ["","","","",""])
+    data = {
+        "message": "Good starting words :-",
+        "letters_present":"",
+        "letters_absent":"",
+        "regex":"",
+        "words": ["STARE","TEARS","RIOTS","CHAIR","EARTH"]
+    }
+    return render_template('index.html', data = data)
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -13,7 +20,15 @@ def my_form_post():
     print(letters_present,letters_absent,regex)
 
 
-    data = ["Mouse","Train","Solve","Right","Tests"]
+    data = {
+        "message": "Top 5 guesses :-",
+        "letters_present":letters_present,
+        "letters_absent":letters_absent,
+        "regex":regex,
+        "words": [" "," "," "," "," "]
+    }
+
+    data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
     return render_template('index.html', data = data)
 
 if __name__ == "__main__":
