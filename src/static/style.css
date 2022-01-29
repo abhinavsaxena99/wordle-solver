@@ -30,6 +30,7 @@ p {
   font-family: 'Roboto Slab', serif;
   font-size: 1em;
   margin: 1em;
+  margin-bottom: 2em;
 }
 
 .guesses {
@@ -41,7 +42,7 @@ p {
 }
 
 .guesses li {
-  margin: -1em;
+  margin: -0.8em;
 }
 
 .note {
