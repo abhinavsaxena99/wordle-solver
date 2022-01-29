@@ -1,4 +1,5 @@
 from flask import Flask, send_from_directory, request, render_template
+import guess
 app = Flask(__name__)
 
 @app.route("/")
@@ -28,13 +29,16 @@ def my_form_post():
         "words": []
     }
 
-    data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
+    # data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
     # data["words"] = ["MOUSE","TRAIN","SOLVE"]
     # data["words"] = ["MOUSE"]
     # data["words"] = []
     
-    print(data, data["words"],len(data["words"]))
+    # print(data, data["words"],len(data["words"]))
 
+    data["words"] = guess.find(letters_present,letters_absent,regex)
+    
+    
     words_length = len(data["words"])
 
     if words_length == 1:
