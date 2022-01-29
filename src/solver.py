@@ -28,7 +28,7 @@ def my_form_post():
         "words": []
     }
 
-    # data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
+    data["words"] = ["MOUSE","TRAIN","SOLVE","RIGHT","TESTS"]
     # data["words"] = ["MOUSE","TRAIN","SOLVE"]
     # data["words"] = ["MOUSE"]
     # data["words"] = []
