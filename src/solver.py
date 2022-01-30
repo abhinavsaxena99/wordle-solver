@@ -66,9 +66,9 @@ def homepage():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    letters_present = request.form['letters_present']
-    letters_absent = request.form['letters_absent']
-    regex = request.form['regex']
+    letters_present = request.form['letters_present'].upper()
+    letters_absent = request.form['letters_absent'].upper()
+    regex = request.form['regex'].upper()
     print(letters_present,letters_absent,regex)
 
 
