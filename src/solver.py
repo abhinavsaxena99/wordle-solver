@@ -40,15 +40,15 @@ def find(letters_present, letters_absent, regex_string):
     if len(final_list)==0:
         return []
     
-    common_word = final_list[-1] if len(final_list)<=3 else final_list[2]
+    common_word = final_list[0]
     
-    # Only choose from 30 most common words
-    final_list = final_list[:min(30,len(final_list))]
+    # Only choose from 20 most common words
+    final_list = final_list[:min(20,len(final_list))]
 
     # Basically when just 2 guesses are remaining, disregard word scores and recommend most common
     # Can ask this from user or infer from length of list
 
-    if len(final_list) < 10:
+    if len(final_list) < 15:
         pass
     else:
         final_list = sorted(final_list, key = lambda x: float("{:.4f}".format(scored_words[x])), reverse = True)
