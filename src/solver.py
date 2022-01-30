@@ -22,9 +22,6 @@ def find(letters_present, letters_absent, regex_string):
 
     list_without_absents = [word for word in ranked_words if not letters_absent&set(word)]
     list_with_presents = [word for word in list_without_absents if letters_present&set(word)]
-    
-
-    # TODO regex stuff
 
     
     regex_string = regex_string.replace('-','.')
@@ -34,7 +31,7 @@ def find(letters_present, letters_absent, regex_string):
 
     r = re.compile(regex_string)
     final_list = list(filter(r.match,list_with_presents))
-    
+    common_word = final_list[-1] if len(final_list)<=3 else final_list[2]
     
     
     # Basically when just 2 guesses are remaining, disregard word scores and recommend most common
@@ -51,6 +48,9 @@ def find(letters_present, letters_absent, regex_string):
     for x in final_list:
         print(x,scored_words[x])
 
+    if len(final_list) > 0 and common_word not in final_list:
+        final_list[-1] = common_word
+    
     return final_list
 
 @app.route("/")
