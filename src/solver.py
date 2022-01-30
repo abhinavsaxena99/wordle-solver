@@ -37,18 +37,21 @@ def find(letters_present, letters_absent, regex_string):
     r = re.compile(regex_string)
     final_list = list(filter(r.match,list_with_presents))
 
-    if len(final_list)==0:
-        return []
+    if len(final_list) <= 1:
+        return final_list
     
-    common_word = final_list[0]
+    common_word_1 = final_list[0]
+    common_word_2 = final_list[1]
     
-    # Only choose from 20 most common words
-    final_list = final_list[:min(20,len(final_list))]
+    # Only choose from 15 most common words
+    final_list = final_list[:min(15,len(final_list))]
+
+    print(final_list)
 
     # Basically when just 2 guesses are remaining, disregard word scores and recommend most common
     # Can ask this from user or infer from length of list
 
-    if len(final_list) < 15:
+    if len(final_list) < 10:
         pass
     else:
         final_list = sorted(final_list, key = lambda x: float("{:.4f}".format(scored_words[x])), reverse = True)
@@ -60,8 +63,11 @@ def find(letters_present, letters_absent, regex_string):
     for x in final_list:
         print(x,scored_words[x])
 
-    if len(final_list) > 0 and common_word not in final_list:
-        final_list[-1] = common_word
+    if len(final_list) > 0 and common_word_1 not in final_list:
+        final_list[-1] = common_word_1
+
+    if len(final_list) > 1 and common_word_2 not in final_list:
+        final_list[-2] = common_word_2
     
     return final_list
 
