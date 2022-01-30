@@ -11,4 +11,7 @@ sudo systemctl status solver
 sites-enabled-solver goes in /etc/nginx/sites-enabled with the name "solver" and then is linked to sites-enabled
 using "sudo ln -s /etc/nginx/sites-available/solver /etc/nginx/sites-enabled"
 
+
+SSL certs through LetsEncrypt, Certbot (added the lines inside server block in sites-enabled-solver to the certbox server block in sites-enabled/default)
+
 Project built on Python 3.8.10
