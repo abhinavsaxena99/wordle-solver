@@ -1,5 +1,7 @@
 from flask import Flask, send_from_directory, request, render_template
 import pickle
+import regex as re
+
 app = Flask(__name__)
 
 
@@ -13,23 +15,42 @@ with open('src/scored_words.pkl', 'rb') as f:
     scored_words = pickle.load(f)
 
 
-def find(letters_present, letters_absent, regex):
+def find(letters_present, letters_absent, regex_string):
 
-    final_list = []
+    letters_absent = set(letters_absent)
+    letters_present = set(letters_present)
+
+    list_without_absents = [word for word in ranked_words if not letters_absent&set(word)]
+    list_with_presents = [word for word in list_without_absents if letters_present&set(word)]
+    
+
+    # TODO regex stuff
+
+    
+    regex_string = regex_string.replace('-','.')
+    regex_string = regex_string.replace('_','.')
+
+    print(regex_string)
+
+    r = re.compile(regex_string)
+    final_list = list(filter(r.match,list_with_presents))
     
     
     
     # Basically when just 2 guesses are remaining, disregard word scores and recommend most common
     # Can ask this from user or infer from length of list
-    if len(final_list) < 2:
+    if len(final_list) < 10:
         pass
     else:
-        final_list = sorted(final_list, key = lambda x: (scored_words[x],x), reverse = True)
+        final_list = sorted(final_list, key = lambda x: float("{:.4f}".format(scored_words[x])), reverse = True)
 
 
     if len(final_list) > 5:
-        return final_list[:5]
+        final_list = final_list[:5]
     
+    for x in final_list:
+        print(x,scored_words[x])
+
     return final_list
 
 @app.route("/")

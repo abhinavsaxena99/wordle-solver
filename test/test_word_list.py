@@ -1,3 +1,5 @@
+# Run this script from the parent directory
+
 import pickle
 from nltk.corpus import words
 

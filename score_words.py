@@ -45,6 +45,7 @@ def find_score(word):
         if c not in taken:
             taken.add(c)
             score += scores[c]
+    score = float("{:.4f}".format(score))
     return score
 
 
