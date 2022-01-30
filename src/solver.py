@@ -21,8 +21,13 @@ def find(letters_present, letters_absent, regex_string):
     letters_present = set(letters_present)
 
     list_without_absents = [word for word in ranked_words if not letters_absent&set(word)]
-    list_with_presents = [word for word in list_without_absents if letters_present&set(word)]
-
+    
+    if len(list_without_absents) == 0:
+        return []
+    
+    list_with_presents = [word for word in list_without_absents if len(letters_present&set(word))==len(letters_present)]
+    if len(list_with_presents) == 0:
+        list_with_presents = list_without_absents
     
     regex_string = regex_string.replace('-','.')
     regex_string = regex_string.replace('_','.')
@@ -31,11 +36,18 @@ def find(letters_present, letters_absent, regex_string):
 
     r = re.compile(regex_string)
     final_list = list(filter(r.match,list_with_presents))
+
+    if len(final_list)==0:
+        return []
+    
     common_word = final_list[-1] if len(final_list)<=3 else final_list[2]
     
-    
+    # Only choose from 30 most common words
+    final_list = final_list[:min(30,len(final_list))]
+
     # Basically when just 2 guesses are remaining, disregard word scores and recommend most common
     # Can ask this from user or infer from length of list
+
     if len(final_list) < 10:
         pass
     else:
