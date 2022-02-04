@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request, render_template
+from flask import Flask, send_from_directory, request, render_template, make_response
 import pickle
 import regex as re
 
@@ -121,6 +121,13 @@ def my_form_post():
         data["words"].append("\xa0")
     
     return render_template('index.html', data = data)
+
+@app.route('/sitemap')
+def sitemap():
+    sitemap_xml = render_template('sitemap.xml')
+    response = make_response(sitemap_xml)
+    response.headers["Content-Type"] = 'application/xml'
+    return response
 
 if __name__ == "__main__":
     app.debug = True
